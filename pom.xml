@@ -29,6 +29,13 @@
 		</license>
 	</licenses>
 
+	<scm>
+		<url>https://github.com/retest/surili-commons/</url>
+		<connection>scm:git:https://github.com/retest/surili-commons.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/retest/surili-commons.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
 	<dependencies>
 		<!-- retest dependencies -->
 
