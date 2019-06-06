@@ -5,13 +5,20 @@ dist: trusty
 git:
   depth: false
 
+addons:
+  sonarcloud:
+    organization: retest
+    token:
+      secure: "${SONAR_CLOUD_TOKEN}"
+
 cache:
   directories:
+    - "${HOME}/.sonar/cache/"
     - "${HOME}/.m2/"
 
 install: true
 
-script: mvn clean verify --settings .travis.settings.xml
+script: ci/script.sh
 
 deploy:
   - provider: releases
