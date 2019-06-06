@@ -1,0 +1,17 @@
+<settings>
+	<mirrors>
+		<mirror>
+			<id>nexus-retest</id>
+			<url>https://nexus.retest.org/repository/all/</url>
+			<mirrorOf>*</mirrorOf>
+		</mirror>
+	</mirrors>
+
+	<servers>
+		<server>
+			<id>nexus-retest</id>
+			<username>retest</username>
+			<password>${env.RETEST_NEXUS_PASSWORD}</password>
+		</server>
+	</servers>
+</settings>

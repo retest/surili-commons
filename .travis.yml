@@ -11,7 +11,7 @@ cache:
 
 install: true
 
-script: mvn clean verify
+script: mvn clean verify --settings .travis.settings.xml
 
 deploy:
   - provider: releases
