@@ -1,2 +1,3 @@
 # surili-commons
-Common APIS for RETEST surili
+
+Common classes and interfaces for the Surili research project.
