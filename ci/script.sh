@@ -1,10 +1,6 @@
 #!/bin/bash
 
-set -o nounset
-set -o errexit
-set -o pipefail
-
-export MVN='mvn --settings .travis.settings.xml'
+source ci/defaults.sh
 
 # compile with JDK 8
 ${MVN} clean package -DskipTests
