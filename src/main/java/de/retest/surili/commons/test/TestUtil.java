@@ -20,7 +20,7 @@ public final class TestUtil {
 	 * Creates a new SutState which is equal to another SutState if they contain equal collections of root elements.
 	 *
 	 * @param rootElements
-	 * 		The collection of root elements of the SutState.
+	 *            The collection of root elements of the SutState.
 	 * @return A new SutState.
 	 */
 	public static SutState createSutState( final RootElement... rootElements ) {
@@ -32,17 +32,16 @@ public final class TestUtil {
 	 * elements with the same identifying attributes value and number of children should be equal.
 	 *
 	 * @param identifyingAttributesValue
-	 * 		Used as an identifying attributes value to ensure equality as long as the number of children is the same.
+	 *            Used as an identifying attributes value to ensure equality as long as the number of children is the
+	 *            same.
 	 * @param numberOfChildren
-	 * 		The number of contained components of the root element.
+	 *            The number of contained components of the root element.
 	 * @return A new root element.
 	 */
 	public static RootElement getRootElement( final String identifyingAttributesValue, final int numberOfChildren ) {
 		final RootElement rootElement =
-				new RootElement( "retestId", getIdentifyingAttributes( identifyingAttributesValue ),
-						new Attributes(),
-						new Screenshot( "prefix", new byte[] { 1, 2, 3 }, Screenshot.ImageType.PNG ), "screen0",
-						0,
+				new RootElement( "retestId", getIdentifyingAttributes( identifyingAttributesValue ), new Attributes(),
+						new Screenshot( "prefix", new byte[] { 1, 2, 3 }, Screenshot.ImageType.PNG ), "screen0", 0,
 						"My Window" );
 		if ( numberOfChildren > 0 ) {
 			final List<Element> children = new ArrayList<>();
