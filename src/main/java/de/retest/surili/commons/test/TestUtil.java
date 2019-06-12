@@ -28,8 +28,8 @@ public final class TestUtil {
 	}
 
 	/**
-	 * Creates a new root element identified by a user-defined ID. Root elements with the same ID and number of children
-	 * should be equal.
+	 * Creates a new root element using the given identifying attributes value and number of child elements. Other root
+	 * elements with the same identifying attributes value and number of children should be equal.
 	 *
 	 * @param identifyingAttributesValue
 	 * 		Used as an identifying attributes value to ensure equality as long as the number of children is the same.
