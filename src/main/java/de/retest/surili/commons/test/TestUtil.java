@@ -27,11 +27,6 @@ public final class TestUtil {
 		return new SutState( Arrays.asList( rootElements ) );
 	}
 
-	public static IdentifyingAttributes getIdentifyingAttributes( final String id ) {
-		return new IdentifyingAttributes( Arrays.asList( new StringAttribute( "a", id ), new StringAttribute( "b", id ),
-				new StringAttribute( "c", id ) ) );
-	}
-
 	/**
 	 * Creates a new root element identified by a user-defined ID. Root elements with the same ID and number of children
 	 * should be equal.
@@ -58,7 +53,12 @@ public final class TestUtil {
 		return rootElement;
 	}
 
-	public static Element getElement( final Element parent, final int index ) {
+	private static IdentifyingAttributes getIdentifyingAttributes( final String id ) {
+		return new IdentifyingAttributes( Arrays.asList( new StringAttribute( "a", id ), new StringAttribute( "b", id ),
+				new StringAttribute( "c", id ) ) );
+	}
+
+	private static Element getElement( final Element parent, final int index ) {
 		return Element.create( "retestId", parent, getIdentifyingAttributes( "child" + index ), new Attributes(),
 				new Screenshot( "prefix", new byte[] { 1, 2, 3 }, Screenshot.ImageType.PNG ) );
 	}
