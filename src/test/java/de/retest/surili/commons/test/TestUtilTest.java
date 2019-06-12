@@ -1,7 +1,6 @@
 package de.retest.surili.commons.test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ class TestUtilTest {
 		final SutState sutState0 = TestUtil.createSutState( rootElement0 );
 		final SutState sutState1 = TestUtil.createSutState( rootElement1 );
 
-		assertThat( sutState0, equalTo( sutState1 ) );
+		assertThat( sutState0 ).isEqualTo( sutState1 );
 	}
 
 	@Test
@@ -48,6 +47,6 @@ class TestUtilTest {
 		final SutState sutState0 = TestUtil.createSutState( rootElement0 );
 		final SutState sutState1 = TestUtil.createSutState( rootElement1 );
 
-		assertThat( sutState0, not( equalTo( sutState1 ) ) );
+		assertThat( sutState0 ).isNotEqualTo( sutState1 );
 	}
 }
