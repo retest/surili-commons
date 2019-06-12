@@ -20,8 +20,11 @@ class TestUtilTest {
 		final RootElement rootElement0 = TestUtil.getRootElement( "foo", numberOfChildren );
 		final RootElement rootElement1 = TestUtil.getRootElement( "foo", numberOfChildren );
 
-		final List<Element> containedElements = rootElement.getContainedElements();
-		assertThat( containedElements ).hasSize( numberOfChildren );
+		final List<Element> containedElements0 = rootElement0.getContainedElements();
+		assertThat( containedElements0 ).hasSize( numberOfChildren );
+
+		final List<Element> containedElements1 = rootElement1.getContainedElements();
+		assertThat( containedElements1 ).hasSize( numberOfChildren );
 
 		final SutState sutState0 = TestUtil.createSutState( rootElement0 );
 		final SutState sutState1 = TestUtil.createSutState( rootElement1 );
@@ -36,8 +39,11 @@ class TestUtilTest {
 		final RootElement rootElement0 = TestUtil.getRootElement( "foo", numberOfChildren );
 		final RootElement rootElement1 = TestUtil.getRootElement( "bar", numberOfChildren );
 
-		final List<Element> containedElements = rootElement.getContainedElements();
-		assertThat( containedElements ).hasSize( numberOfChildren );
+		final List<Element> containedElements0 = rootElement0.getContainedElements();
+		assertThat( containedElements0 ).hasSize( numberOfChildren );
+
+		final List<Element> containedElements1 = rootElement1.getContainedElements();
+		assertThat( containedElements1 ).hasSize( numberOfChildren );
 
 		final SutState sutState0 = TestUtil.createSutState( rootElement0 );
 		final SutState sutState1 = TestUtil.createSutState( rootElement1 );
