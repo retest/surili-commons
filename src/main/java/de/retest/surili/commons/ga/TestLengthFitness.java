@@ -5,7 +5,7 @@ import lombok.NonNull;
 import lombok.Value;
 
 /**
- * Length of all test cases of one test suite. Smaller tests produce a smaller fitness value which is better.
+ * Length of all test cases of one test suite. Smaller tests produce a greater fitness value which is better.
  */
 @Value
 public class TestLengthFitness implements Fitness {
