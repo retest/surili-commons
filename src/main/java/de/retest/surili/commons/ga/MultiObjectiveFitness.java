@@ -5,9 +5,8 @@ import java.util.List;
 import lombok.NonNull;
 import lombok.Value;
 
-
 @Value
-@NonNull
 public class MultiObjectiveFitness {
+	@NonNull
 	List<Fitness> fitnessList;
 }
