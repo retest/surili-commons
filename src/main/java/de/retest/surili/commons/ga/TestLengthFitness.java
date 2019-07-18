@@ -1,5 +1,6 @@
 package de.retest.surili.commons.ga;
 
+import de.retest.surili.commons.core.TestCase;
 import de.retest.surili.commons.core.TestSuite;
 import lombok.NonNull;
 import lombok.Value;
@@ -16,7 +17,7 @@ public class TestLengthFitness implements Fitness {
 	@Override
 	public double getFitness() {
 		return -1 * testSuite.getTestCases().stream() //
-				.mapToInt( testCase -> testCase.getActions().size() ) //
+				.mapToInt( TestCase::getSize ) //
 				.sum();
 	}
 }
