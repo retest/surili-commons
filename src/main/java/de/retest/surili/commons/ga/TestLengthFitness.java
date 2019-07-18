@@ -15,8 +15,8 @@ public class TestLengthFitness implements Fitness {
 
 	@Override
 	public double getFitness() {
-		return -1 * testSuite.getTestCases().stream() //
+		return (double)(-1 * testSuite.getTestCases().stream() //
 				.mapToInt( testCase -> testCase.getActions().size() ) //
-				.sum();
+				.sum());
 	}
 }
