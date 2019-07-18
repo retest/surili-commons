@@ -16,4 +16,9 @@ public class TestCaseImpl implements TestCase {
 	@NonNull
 	List<Action> actions;
 
+	@Override
+	public int getSize() {
+		return actions.size();
+	}
+
 }

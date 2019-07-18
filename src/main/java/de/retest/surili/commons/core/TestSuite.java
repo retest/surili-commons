@@ -9,4 +9,6 @@ public interface TestSuite extends Serializable {
 
 	Set<TestCase> getTestCases();
 
+	int getSize();
+
 }

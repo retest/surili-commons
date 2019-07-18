@@ -11,4 +11,6 @@ public interface TestCase extends Serializable {
 
 	List<Action> getActions();
 
+	int getSize();
+
 }
