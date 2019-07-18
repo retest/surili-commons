@@ -15,8 +15,11 @@ import lombok.Value;
  */
 @Value
 public class ActionType implements Serializable {
-	public static final String EMPTY_TARGET_ELEMENT_PATH = "";
+
 	private static final long serialVersionUID = 1L;
+
+	public static final String EMPTY_TARGET_ELEMENT_PATH = "";
+
 	@NonNull
 	String elementPath;
 	@NonNull

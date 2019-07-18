@@ -15,4 +15,9 @@ public class TestSuiteImpl implements TestSuite {
 	@NonNull
 	Set<TestCase> testCases;
 
+	@Override
+	public int getSize() {
+		return testCases.size();
+	}
+
 }
