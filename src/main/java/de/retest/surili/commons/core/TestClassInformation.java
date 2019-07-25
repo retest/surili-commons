@@ -25,7 +25,9 @@ public class TestClassInformation {
 	}
 
 	private StackTraceElement getStackTraceElementOrThrow() {
-		final StackTraceElement stackTraceElement = TestCaseFinder.findTestCaseMethodInStack();
+		final StackTraceElement stackTraceElement = TestCaseFinder.getInstance() //
+				.findTestCaseMethodInStack() //
+				.getStackTraceElement();
 		if ( stackTraceElement == null ) {
 			throw new RuntimeException(
 					"Could not determine test case method. Extracting information is only possible from test methods!" );
