@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>surili-commons</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
+	<version>0.3.1</version>
 	<packaging>jar</packaging>
 
 	<name>${project.artifactId}</name>
@@ -31,7 +31,7 @@
 		<url>https://github.com/retest/surili-commons/</url>
 		<connection>scm:git:https://github.com/retest/surili-commons.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/retest/surili-commons.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>v0.3.1</tag>
 	</scm>
 
 	<dependencies>
