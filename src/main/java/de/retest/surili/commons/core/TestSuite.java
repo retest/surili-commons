@@ -22,8 +22,8 @@ public interface TestSuite extends Serializable {
 	Set<TestCase> getTestCases();
 
 	/**
-	 * @implNote Sorted alphabetically according to {@link #getName()}.
 	 * @return {@link #getTestCases()} as a list.
+	 * @implNote Sorted alphabetically according to {@link #getName()}.
 	 */
 	default List<TestCase> getTestCasesAsList() {
 		return getTestCases().stream() //
