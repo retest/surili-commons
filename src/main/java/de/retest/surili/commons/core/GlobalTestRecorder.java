@@ -44,7 +44,11 @@ public class GlobalTestRecorder {
 		}
 	}
 
-	public TestSuite getTestSuite() {
+	public TestSuite getRecordedTestSuite() {
 		return new TestSuiteImpl( testSuiteName, new HashSet<>( testCases.values() ) );
+	}
+
+	public void resetRecordedTestSuite() {
+		testCases.clear();
 	}
 }
