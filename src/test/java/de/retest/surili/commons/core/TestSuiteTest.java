@@ -1,6 +1,8 @@
 package de.retest.surili.commons.core;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,7 +18,10 @@ class TestSuiteTest {
 		final TestCase c0 = new TestCaseImpl( "c", Collections.emptyList() );
 		final TestCase c1 = new TestCaseImpl( "1", Collections.emptyList() );
 		final TestCase c2 = new TestCaseImpl( "b", Collections.emptyList() );
-		final TestSuite cut = new TestSuiteImpl( "foo", new HashSet<>( Arrays.asList( c0, c1, c2 ) ) );
+
+		final TestSuite cut = mock( TestSuite.class );
+		when( cut.getTestCases() ).thenReturn( new HashSet<>( Arrays.asList( c0, c1, c2 ) ) );
+		when( cut.getTestCasesAsList() ).thenCallRealMethod();
 
 		final List<TestCase> testCases = cut.getTestCasesAsList();
 
