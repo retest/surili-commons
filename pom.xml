@@ -1,19 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>de.retest</groupId>
 	<artifactId>surili-commons</artifactId>
 	<version>0.5.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>${project.artifactId}</name>
 	<description>Surili research project: commons. Contains common classes and interfaces that are used by various surili modules.</description>
-
-	<parent>
-		<groupId>de.retest</groupId>
-		<artifactId>surili-parent</artifactId>
-		<version>0.4.0</version>
-		<relativePath />
-	</parent>
 
 	<organization>
 		<name>ReTest GmbH</name>
@@ -26,6 +20,16 @@
 			<url>file:///dev/null</url>
 		</license>
 	</licenses>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.javadoc.and.source.version>3.1.0</maven.javadoc.and.source.version>
+	</properties>
 
 	<scm>
 		<url>https://github.com/retest/surili-commons/</url>
@@ -40,6 +44,7 @@
 		<dependency>
 			<groupId>de.retest</groupId>
 			<artifactId>recheck</artifactId>
+			<version>1.4.0</version>
 		</dependency>
 
 		<!-- other dependencies -->
@@ -47,6 +52,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.8</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -54,17 +60,20 @@
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.5.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
+			<version>3.13.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
+			<version>3.0.0</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -74,25 +83,46 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.version}</version>
+				<configuration>
+					<properties>
+						<configurationParameters>
+							junit.jupiter.execution.parallel.enabled=true
+							junit.jupiter.execution.parallel.config.dynamic.factor=1
+						</configurationParameters>
+					</properties>
+				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<goals>install</goals>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.2</version>
 				<configuration>
 					<archive>
 						<manifestEntries>
 							<Automatic-Module-Name>de.retest.surili.commons</Automatic-Module-Name>
+							<Built-By>ReTest GmbH</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -101,11 +131,51 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.and.source.version}</version>
+				<executions>
+					<execution>
+						<id>bundle-javadoc</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- see https://bugs.openjdk.java.net/browse/JDK-8212233 -->
+					<source>8</source>
+					<!-- see https://blog.codefx.org/java/new-javadoc-tags/#Maven -->
+					<tags>
+						<tag>
+							<name>apiNote</name>
+							<placement>a</placement>
+							<head>API Note:</head>
+						</tag>
+						<tag>
+							<name>implSpec</name>
+							<placement>a</placement>
+							<head>Implementation Requirements:</head>
+						</tag>
+						<tag>
+							<name>implNote</name>
+							<placement>a</placement>
+							<head>Implementation Note:</head>
+						</tag>
+					</tags>
+				</configuration>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.javadoc.and.source.version}</version>
+				<executions>
+					<execution>
+						<id>bundle-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
