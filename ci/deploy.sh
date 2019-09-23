@@ -2,4 +2,4 @@
 
 source ci/defaults.sh
 
-${MVN} deploy -DskipTests -Psign
+${MVN} deploy -DskipTests
