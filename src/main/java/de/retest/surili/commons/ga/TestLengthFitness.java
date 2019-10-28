@@ -9,7 +9,7 @@ import lombok.Value;
  * Length of all test cases of one test suite. Smaller tests produce a greater fitness value which is better.
  */
 @Value
-public class TestLengthFitness implements Fitness {
+public class TestLengthFitness implements EfficiencyFitness {
 
 	@NonNull
 	TestSuite testSuite;
