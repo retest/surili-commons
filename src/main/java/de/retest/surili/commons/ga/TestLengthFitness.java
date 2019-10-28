@@ -6,7 +6,14 @@ import lombok.NonNull;
 import lombok.Value;
 
 /**
- * Length of all test cases of one test suite. Smaller tests produce a greater fitness value which is better.
+ * Summarized length of all test cases from a test suite. Smaller tests produce a greater fitness, where the actual
+ * value is always negative (unless the overall length is 0). Example:
+ *
+ * <pre>
+ * Test Case 1: size 2
+ * Test Case 2: size 4
+ * =&gt; (2 + 4) * -1 = -6
+ * </pre>
  */
 @Value
 public class TestLengthFitness implements EfficiencyFitness {
