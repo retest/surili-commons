@@ -1,8 +1,6 @@
 package de.retest.surili.commons.ga;
 
-import de.retest.surili.commons.core.TestCase;
 import de.retest.surili.commons.core.TestSuite;
-import lombok.NonNull;
 import lombok.Value;
 
 /**
@@ -16,15 +14,21 @@ import lombok.Value;
  * </pre>
  */
 @Value
-public class TestLengthFitness implements EfficiencyFitness {
+public class TestSuiteLengthFitness implements EfficiencyFitness {
 
-	@NonNull
-	TestSuite testSuite;
+	private final int length;
+
+	public TestSuiteLengthFitness( final TestSuite testSuite ) {
+		this( testSuite.getSize() );
+	}
+
+	public TestSuiteLengthFitness( final int length ) {
+		this.length = length;
+	}
 
 	@Override
 	public double getFitness() {
-		return -1 * testSuite.getTestCases().stream() //
-				.mapToInt( TestCase::getSize ) //
-				.sum();
+		return -1.0 * length;
 	}
+
 }
