@@ -2,6 +2,7 @@ package de.retest.surili.commons.core;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 import de.retest.surili.commons.actions.Action;
 
@@ -13,7 +14,7 @@ public interface TestCase extends Serializable {
 	/**
 	 * @return The display name of this test case.
 	 */
-	String getName();
+	Optional<String> getName();
 
 	/**
 	 * @return The list of actions of this test case.
