@@ -3,18 +3,12 @@ package de.retest.surili.commons.core;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 /**
  * A test suite with a set (i.e. unordered) of {@link TestCase}s.
  */
 public interface TestSuite extends Serializable {
-
-	/**
-	 * @return The display name of this test suite.
-	 */
-	Optional<String> getName();
 
 	/**
 	 * @return The set of test cases of this test suite.
