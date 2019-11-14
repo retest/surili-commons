@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<name>${project.artifactId}</name>
-	<description>Surili research project: commons. Contains common classes and interfaces that are used by various surili modules.</description>
+	<description>Contains common classes and interfaces that are used by various surili modules.</description>
 
 	<organization>
 		<name>ReTest GmbH</name>
