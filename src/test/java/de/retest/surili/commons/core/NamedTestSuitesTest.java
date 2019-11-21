@@ -10,13 +10,14 @@ import org.junit.jupiter.api.Test;
 
 import de.retest.recheck.ui.descriptors.Element;
 import de.retest.surili.commons.actions.Action;
+import lombok.Value;
 
 class NamedTestSuitesTest {
 
 	@Test
 	void should_rename_all_with_unique_names() throws Exception {
-		final Action action0 = mockAction( 0 );
-		final Action action1 = mockAction( 1 );
+		final Action action0 = new MockedAction( 0 );
+		final Action action1 = new MockedAction( 1 );
 
 		final TestCase testCase00 = new TestCaseImpl( Arrays.asList( action0, action0 ) );
 		final TestCase testCase01 = new TestCaseImpl( Arrays.asList( action1, action1 ) );
@@ -40,21 +41,17 @@ class NamedTestSuitesTest {
 		return new LinkedHashSet<>( Arrays.asList( e ) );
 	}
 
-	private Action mockAction( final int hashCode ) {
-		return new Action() {
+	@Value
+	private class MockedAction implements Action {
 
-			private static final long serialVersionUID = 1L;
+		private static final long serialVersionUID = 1L;
 
-			@Override
-			public Optional<Element> getTargetElement() {
-				return Optional.empty();
-			}
+		private int id;
 
-			@Override
-			public int hashCode() {
-				return hashCode;
-			}
-		};
+		@Override
+		public Optional<Element> getTargetElement() {
+			return Optional.empty();
+		}
 	}
 
 }
