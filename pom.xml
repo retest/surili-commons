@@ -37,7 +37,7 @@
 		<developerConnection>scm:git:ssh://git@github.com/retest/surili-commons.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-	
+
 	<distributionManagement>
 		<repository>
 			<id>nexus-retest</id>
