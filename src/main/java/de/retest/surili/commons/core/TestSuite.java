@@ -11,7 +11,7 @@ public interface TestSuite extends Serializable {
 	/**
 	 * @return The set of test cases of this test suite.
 	 */
-	Set<TestCase> getTestCases();
+	Set<? extends TestCase> getTestCases();
 
 	/**
 	 * @return The number of test cases of this test suite.
