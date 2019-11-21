@@ -2,7 +2,6 @@ package de.retest.surili.commons.core;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
 import de.retest.surili.commons.actions.Action;
 
@@ -10,11 +9,6 @@ import de.retest.surili.commons.actions.Action;
  * A test suite with a list (i.e. ordered) of {@link Action}s.
  */
 public interface TestCase extends Serializable {
-
-	/**
-	 * @return The display name of this test case.
-	 */
-	Optional<String> getName();
 
 	/**
 	 * @return The list of actions of this test case.

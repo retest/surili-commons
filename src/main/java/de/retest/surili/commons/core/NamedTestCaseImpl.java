@@ -7,12 +7,14 @@ import lombok.NonNull;
 import lombok.Value;
 
 @Value
-public class TestCaseImpl implements TestCase {
+public class NamedTestCaseImpl implements NamedTestCase {
 
 	private static final long serialVersionUID = 1L;
 
 	@NonNull
 	private final List<Action> actions;
+	@NonNull
+	private final String name;
 
 	@Override
 	public int getSize() {
