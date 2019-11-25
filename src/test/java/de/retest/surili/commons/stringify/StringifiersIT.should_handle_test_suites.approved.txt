@@ -1,0 +1,7 @@
+TestSuite:
+	TestCase:
+		NavigateForwardAction()
+		NavigateBackAction()
+	TestCase:
+		NavigateBackAction()
+		NavigateForwardAction()
