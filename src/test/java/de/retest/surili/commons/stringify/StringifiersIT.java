@@ -81,4 +81,16 @@ class StringifiersIT {
 		Approvals.verify( stringified );
 	}
 
+	@Test
+	void should_handle_empty_test_suites_with_empty_test_cases() throws Exception {
+		final TestCase emptyTestCase = new TestCaseImpl( Collections.emptyList() );
+		final Set<TestCase> testCases = new LinkedHashSet<>( Arrays.asList( testCase, emptyTestCase ) );
+		final TestSuite testSuite = new TestSuiteImpl( testCases );
+		final Stringifier<TestSuite> cut = new TestSuiteStringifier();
+
+		final String stringified = cut.toString( testSuite );
+
+		Approvals.verify( stringified );
+	}
+
 }
