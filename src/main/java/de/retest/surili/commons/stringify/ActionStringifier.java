@@ -1,20 +1,22 @@
 package de.retest.surili.commons.stringify;
 
 import de.retest.surili.commons.actions.Action;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 public class ActionStringifier implements Stringifier<Action> {
 
-	private final int indentationLevel;
+	private final String prefix;
 
 	public ActionStringifier() {
 		this( 0 );
 	}
 
+	public ActionStringifier( final int indentationLevel ) {
+		prefix = Tabs.of( indentationLevel );
+	}
+
 	@Override
 	public String toString( final Action action ) {
-		return Tabs.of( indentationLevel ) + action.toString();
+		return prefix + action.toString();
 	}
 
 }

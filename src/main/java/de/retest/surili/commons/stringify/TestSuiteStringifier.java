@@ -5,12 +5,10 @@ import java.util.stream.Collectors;
 
 import de.retest.surili.commons.core.TestCase;
 import de.retest.surili.commons.core.TestSuite;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 public class TestSuiteStringifier implements Stringifier<TestSuite> {
 
-	private final int indentationLevel;
+	private final String prefix;
 	private final TestCaseStringifier testCaseStringifier;
 
 	public TestSuiteStringifier() {
@@ -21,13 +19,18 @@ public class TestSuiteStringifier implements Stringifier<TestSuite> {
 		this( indentationLevel, new TestCaseStringifier( indentationLevel + 1 ) );
 	}
 
+	public TestSuiteStringifier( final int indentationLevel, final TestCaseStringifier testCaseStringifier ) {
+		prefix = Tabs.of( indentationLevel ) + "TestSuite:";
+		this.testCaseStringifier = testCaseStringifier;
+	}
+
 	@Override
 	public String toString( final TestSuite testSuite ) {
 		final Set<? extends TestCase> testCases = testSuite.getTestCases();
 		if ( testCases.isEmpty() ) {
-			return "TestSuite: empty";
+			return prefix + " empty";
 		}
-		return Tabs.of( indentationLevel ) + "TestSuite:\n" + testCases.stream() //
+		return prefix + "\n" + testCases.stream() //
 				.map( testCaseStringifier::toString ) //
 				.collect( Collectors.joining( "\n" ) );
 	}
