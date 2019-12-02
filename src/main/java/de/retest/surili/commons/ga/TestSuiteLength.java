@@ -14,15 +14,15 @@ import lombok.Value;
  * </pre>
  */
 @Value
-public class TestSuiteLengthFitness implements EfficiencyFitness {
+public class TestSuiteLength implements Efficiency {
 
 	private final int length;
 
-	public TestSuiteLengthFitness( final TestSuite testSuite ) {
+	public TestSuiteLength( final TestSuite testSuite ) {
 		this( testSuite.getSize() );
 	}
 
-	public TestSuiteLengthFitness( final int length ) {
+	public TestSuiteLength( final int length ) {
 		this.length = length;
 	}
 
