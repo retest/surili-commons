@@ -19,4 +19,10 @@ public class ClickOnAction implements Action {
 		return Optional.of( targetElement );
 	}
 
+	@Override
+	public String toString() {
+		return ClickOnAction.class.getSimpleName() //
+				+ "(path=" + targetElement.getIdentifyingAttributes().getPath() + ")";
+	}
+
 }
