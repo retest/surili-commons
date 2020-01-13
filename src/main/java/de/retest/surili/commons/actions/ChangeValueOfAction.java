@@ -1,5 +1,6 @@
 package de.retest.surili.commons.actions;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 import de.retest.recheck.ui.descriptors.Element;
@@ -19,6 +20,16 @@ public class ChangeValueOfAction implements Action {
 	@Override
 	public Optional<Element> getTargetElement() {
 		return Optional.of( targetElement );
+	}
+
+	@Override
+	public String toString() {
+		return ChangeValueOfAction.class.getSimpleName() //
+				+ "(" //
+				+ "path=" + targetElement.getIdentifyingAttributes().getPath() //
+				+ ", " //
+				+ "keysToSend=" + Arrays.toString( keysToSend ) //
+				+ ")";
 	}
 
 }
