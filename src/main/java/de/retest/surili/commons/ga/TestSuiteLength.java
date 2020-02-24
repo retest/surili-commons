@@ -14,7 +14,7 @@ import lombok.Value;
  * </pre>
  */
 @Value
-public class TestSuiteLength implements Efficiency {
+public class TestSuiteLength implements Costs {
 
 	private final int length;
 
