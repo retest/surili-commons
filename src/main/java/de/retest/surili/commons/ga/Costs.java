@@ -5,4 +5,9 @@ package de.retest.surili.commons.ga;
  */
 public interface Costs extends Fitness {
 
+	@Override
+	default OptimizationType getOptimizationType() {
+		return OptimizationType.MINIMIZE;
+	}
+
 }

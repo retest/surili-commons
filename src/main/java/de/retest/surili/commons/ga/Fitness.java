@@ -8,10 +8,16 @@ package de.retest.surili.commons.ga;
 public interface Fitness extends Comparable<Fitness> {
 
 	/**
-	 * @return Fitness measured in the corresponding problem domain's unit. As fitness is maximized, a higher value
-	 *         indicates a better fitness.
+	 * @return Fitness measured in the corresponding problem domain's unit.
 	 */
 	double getFitness();
+
+	/**
+	 * @return Whether this objective should be maximized or minimized.
+	 */
+	default OptimizationType getOptimizationType() {
+		return OptimizationType.MAXIMIZE;
+	}
 
 	@Override
 	default int compareTo( final Fitness other ) {
