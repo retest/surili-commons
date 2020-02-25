@@ -21,9 +21,7 @@ class RandomNaughtyStringsInputGeneratorTest {
 	@Test
 	void should_generate_random_input_for_element() {
 		final CharSequence[] charSequences = cut.getCharSequences( element );
-
-		assertThat( charSequences ).hasSize( 1 );
-		assertThat( charSequences[0].toString() ).isEqualTo( "<plaintext>" );
+		assertThat( charSequences ).containsExactly( "<plaintext>" );
 	}
 
 }
