@@ -25,8 +25,8 @@ public class ChangeValueOfAction implements Action {
 	@Override
 	public String toString() {
 		return ChangeValueOfAction.class.getSimpleName() //
-				+ "(" //
-				+ "path=" + targetElement.getIdentifyingAttributes().getPath() //
+				+ "(targetElement=" //
+				+ targetElement.toString() //
 				+ ", " //
 				+ "keysToSend=" + Arrays.toString( keysToSend ) //
 				+ ")";

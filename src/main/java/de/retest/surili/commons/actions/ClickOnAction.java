@@ -21,8 +21,7 @@ public class ClickOnAction implements Action {
 
 	@Override
 	public String toString() {
-		return ClickOnAction.class.getSimpleName() //
-				+ "(path=" + targetElement.getIdentifyingAttributes().getPath() + ")";
+		return ClickOnAction.class.getSimpleName() + "(targetElement=" + targetElement.toString() + ")";
 	}
 
 }
