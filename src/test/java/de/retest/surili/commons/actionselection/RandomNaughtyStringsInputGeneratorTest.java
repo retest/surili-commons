@@ -14,8 +14,7 @@ class RandomNaughtyStringsInputGeneratorTest {
 
 	@BeforeEach
 	void setUp() {
-		final long seed = 2L;
-		cut = new RandomNaughtyStringsInputGenerator( seed );
+		cut = new RandomNaughtyStringsInputGenerator( 2L );
 		element = mock( Element.class );
 	}
 
