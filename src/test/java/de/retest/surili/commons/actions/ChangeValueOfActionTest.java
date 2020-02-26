@@ -20,7 +20,7 @@ class ChangeValueOfActionTest {
 	void toString_should_be_helpful() {
 		Collection<Attribute> identifying = IdentifyingAttributes.createList( Path.fromString( "/foo[1]/a[2]" ), "a" );
 		identifying.add( new TextAttribute( "text", "Log In" ) );
-		final Element targetElement = Element.create( "retestId", mock(Element.class), new IdentifyingAttributes( identifying ), new MutableAttributes().immutable() );
+		final Element targetElement = Element.create( "retestId", mock( Element.class ), new IdentifyingAttributes( identifying ), new MutableAttributes().immutable() );
 		final CharSequence[] keysToSend = { "keys to send" };
 
 		final Action cut = new ChangeValueOfAction( targetElement, keysToSend );
