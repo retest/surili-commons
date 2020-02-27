@@ -14,4 +14,10 @@ class BigListOfNaughtyStringsTest {
 		assertThat( blns ).hasSize( 511 );
 	}
 
+	@Test
+	void should_return_escaped_representation_of_a_naughty_string() throws Exception {
+		final String naughtyString = BigListOfNaughtyStrings.getNaughtyStringAt( 225 );
+		assertThat( naughtyString ).isEqualTo( "'`\\\"><\\\\x00script>javascript:alert(1)</script>" );
+	}
+
 }
