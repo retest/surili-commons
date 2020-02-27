@@ -6,8 +6,6 @@ import java.io.UncheckedIOException;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.text.StringEscapeUtils;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 class BigListOfNaughtyStrings {
@@ -28,6 +26,6 @@ class BigListOfNaughtyStrings {
 	}
 
 	public static String getNaughtyStringAt( final int index ) {
-		return StringEscapeUtils.escapeJava( bigListOfNaughtyStrings.get( index ) );
+		return bigListOfNaughtyStrings.get( index );
 	}
 }
