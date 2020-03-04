@@ -8,7 +8,15 @@ import de.retest.surili.commons.actions.Action;
 
 public class NamedTestSuites {
 
+	public static final String DEFAULT_TEST_SUITE_NAME_PREFIX = "TestSuite";
+	public static final String DEFAULT_TEST_CASE_NAME_PREFIX = "TestCase";
+
 	public static Set<NamedTestSuite> of( final Set<TestSuite> testSuites ) {
+		return of( DEFAULT_TEST_SUITE_NAME_PREFIX, DEFAULT_TEST_CASE_NAME_PREFIX, testSuites );
+	}
+
+	public static Set<NamedTestSuite> of( final String testSuiteNamePrefix, final String testCaseNamePrefix,
+			final Set<TestSuite> testSuites ) {
 		final Set<NamedTestSuite> namedTestSuites = new LinkedHashSet<>();
 		int testSuiteCount = 0;
 
@@ -18,13 +26,13 @@ public class NamedTestSuites {
 
 			for ( final TestCase testCase : testSuite.getTestCases() ) {
 				final List<Action> actions = testCase.getActions();
-				final String testCaseName = "TestCase" + testCaseCount++;
+				final String testCaseName = testCaseNamePrefix + testCaseCount++;
 				final NamedTestCase namedTestCase = new NamedTestCaseImpl( actions, testCaseName );
 
 				namedTestCases.add( namedTestCase );
 			}
 
-			final String testSuiteName = "TestSuite" + testSuiteCount++;
+			final String testSuiteName = testSuiteNamePrefix + testSuiteCount++;
 			final NamedTestSuite namedTestSuite = new NamedTestSuiteImpl( namedTestCases, testSuiteName );
 
 			namedTestSuites.add( namedTestSuite );
