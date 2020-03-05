@@ -10,7 +10,7 @@ wget --quiet https://github.com/sormuras/bach/raw/master/install-jdk.sh && . ./i
 
 # disable SonarCloud for external PRs
 if [ ${TRAVIS_SECURE_ENV_VARS} = "true" ]; then
-    ${MVN} org.jacoco:jacoco-maven-plugin:prepare-agent test verify sonar:sonar
+    ${MVN} verify sonar:sonar -Pcoverage
 else
-    ${MVN} org.jacoco:jacoco-maven-plugin:prepare-agent test verify
+    ${MVN} verify
 fi
