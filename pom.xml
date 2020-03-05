@@ -3,7 +3,7 @@
 
 	<groupId>de.retest</groupId>
 	<artifactId>surili-commons</artifactId>
-	<version>0.14.0-SNAPSHOT</version>
+	<version>0.15.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>${project.artifactId}</name>
